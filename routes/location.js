@@ -32,21 +32,18 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/user-location', async (req, res) => {
-  try {
-    const ipinfo = new IPinfoWrapper("884d2612505be2");
+// router.get('/user-location', async (req, res) => {
+//   try {
+//     const ipinfo = new IPinfoWrapper("884d2612505be2");
+//     const userIp = req.clientIp; // Use req.clientIp from the request-ip middleware
 
-    // Replace 'user_ip' with the actual user's IP address, which you can obtain from the request object
-    const userIp = req.ip;
-    console.log(userIp); // Assuming you have middleware to set req.ip
-
-    const locationInfo = await ipinfo.lookupIp(userIp);
-    res.json(locationInfo);
-  } catch (error) {
-    console.error('Error getting user location:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
+//     const locationInfo = await ipinfo.lookupIp(userIp);
+//     res.json(locationInfo); // Return location information
+//   } catch (error) {
+//     console.error('Error getting user location:', error);
+//     res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// });
 
 
 module.exports = router;
